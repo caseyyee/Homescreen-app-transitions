@@ -1,0 +1,186 @@
+body {
+	height: 100%;
+    width: 100%;
+    perspective: 400px;
+	perspective-origin: center center;
+	transform: perspective(400px);
+	background-color: black;
+	
+}
+
+// resets
+ul, li{
+	margin: 0;
+	padding: 0;
+}
+
+
+#container {
+	width: 100%; 
+	height: 100%;
+}
+
+#home {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	color: #fff;
+	background-position: center center;
+    background-size: cover;
+	background-image: url('../../homescreen-common/images/wallpaper/320x480/FXOS_Grassy_Field.jpg');
+}
+#home.show {
+	animation-name: zoomIn;
+	animation-duration: 0.5s;
+}
+
+	#apps {
+		padding: 5px;
+	}
+
+		.app {
+			float: left;
+			list-style: none;
+			margin: 8px;
+			text-align: center;
+			a { 
+				text-decoration: none;
+				color: #fff;
+			}
+
+			span {	// app name
+				display: block;
+				font-size: 12px;
+				font-weight: bold;
+				margin-top: 4px;
+				text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+			}
+		}
+
+	#dock {
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		background-color: rgba(233,233,233,0.5);
+		padding: 2px 5px 2px 5px;
+	}
+
+
+
+#appSplash {
+	width: 100%;
+	height: 100%;
+    top: 0px;
+    left: 0px;
+	background-color: #333;
+	span {
+		display: none;
+	}
+}
+
+	.appSplashIco { // splash screen icon
+		display: none;
+		position: absolute;
+		top: calc(50% - 30px);
+		left: calc(50% - 30px); 
+		transform: scale(1.2);
+	}
+	.appSplashIco.show {
+		display: block;
+		animation-name: pulse;
+		animation-duration: 1.5s;
+		animation-iteration-count: infinite;
+		animation-delay: 2s;
+		transform: scale(1.2);
+	}
+
+
+iframe.appScreen {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+	transition: 0.5s all;
+}
+
+iframe.appScreen.show {
+	margin: 0px;
+	padding: 0px;
+	opacity: 1;
+}
+
+iframe.appScreen.hide {
+	transform: scale(0.5);
+	opacity: 0;
+}
+
+// animations
+@keyframes zoomIn {
+	0% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes pulse {
+	0% {
+		transform: scale(1.2);		
+	}
+	10% {
+		transform: scale(1.5);		
+	}
+	100% {
+		transform: scale(1.2);		
+	}
+}
+
+.slideIn {
+	animation-duration: 1s;
+  	animation-name: slideIn;
+  	transform: translateX(0);
+  	opacity: 1;
+}
+
+@keyframes slideIn {
+	0% {
+		transform: scale(0.7) translateX(100%) perspective( 600px ) rotateY( -45deg );
+	}
+	20% {
+		
+		transform: scale(0.7) translateX(100%) perspective( 600px ) rotateY( -45deg );;
+
+	}
+	100% {
+		left: 0px;
+		transform: scale(1) translateX(0) perspective( 600px ) rotateY( 0deg );;
+	}
+}
+
+.slideOut {
+	animation-duration: 1.1s;
+  	animation-name: slideOut;
+  	transform: translateX(-100%);
+}
+
+@keyframes slideOut {
+	0% {
+		transform: scale(1);
+	}
+
+	20% {
+		transform: scale(0.9);
+		opacity: 0.8;
+		transform: perspective( 600px ) rotateY( 10deg );
+	}
+
+	100% {
+		transform: scale(0.9) translateX(-100%) perspective( 600px ) rotateY( 45deg );
+		opacity: 0.6;
+
+
+	}
+}
+

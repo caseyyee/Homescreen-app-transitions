@@ -1,0 +1,31 @@
+body {
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s;
+  background-position: center center; }
+
+.screen {
+  width: 100%;
+  height: 100px;
+  background-color: #efefef;
+  position: absolute;
+  top: 0px;
+  transition: all 0.2s;
+  font-size: 100px;
+  color: #fff;
+  top: 10%; }
+
+.screen:nth-child(1) {
+  background-color: #C00353; }
+
+.screen:nth-child(2) {
+  background-color: #05BBC3; }
+
+.screen:nth-child(3) {
+  background-color: #D2D947; }
+
+.screen:nth-child(4) {
+  background-color: #F2A342; }
+
+.screen:nth-child(5) {
+  background-color: #F34D51; }
